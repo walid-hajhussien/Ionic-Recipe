@@ -36,10 +36,20 @@ export class RecipeService {
         });
          */
 
-        // using find
+        // Note: using find
         return this.recipesData.find((recipe: RecipeInterface) => {
             return recipe.id === id;
         });
 
+    }
+
+    deleteRecipe(id: string): void {
+        let recipeIndex: number;
+        this.recipesData.map((value, index) => {
+            if (value.id === id) {
+                recipeIndex = index;
+            }
+        });
+        this.recipesData.splice(recipeIndex, 1);
     }
 }
