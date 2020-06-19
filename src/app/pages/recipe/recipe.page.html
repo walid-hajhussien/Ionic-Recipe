@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>recipe</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <app-recipe-item [recipe]="recipe" [routerLink]="['./',recipe.id]" *ngFor="let recipe of recipes; let i  = index "></app-recipe-item>
+    </ion-list>
+</ion-content>

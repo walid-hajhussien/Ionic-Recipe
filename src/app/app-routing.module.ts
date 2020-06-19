@@ -12,11 +12,11 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: () => import('./components/recipe/recipe.module').then(m => m.RecipePageModule)
+                loadChildren: () => import('./pages/recipe/recipe.module').then(m => m.RecipePageModule)
             },
             {
                 path: ':id',
-                loadChildren: () => import('./components/recipe-details/recipe-details.module').then(m => m.RecipeDetailsPageModule)
+                loadChildren: () => import('./pages/recipe-details/recipe-details.module').then(m => m.RecipeDetailsPageModule)
             },
         ]
     },
