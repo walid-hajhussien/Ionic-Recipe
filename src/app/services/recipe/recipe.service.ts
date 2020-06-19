@@ -24,13 +24,22 @@ export class RecipeService {
         return this.recipesData;
     }
 
-    setRecipe(value: RecipeInterface) {
+    setRecipe(value: RecipeInterface): void {
         this.recipesData.push(value);
     }
 
-    getRecipeById(id: string) {
-        return this.recipesData.filter((value, index) => {
+    getRecipeById(id: string): RecipeInterface {
+        // NOTE:  using filter
+        /*
+         return this.recipesData.filter((value, index) => {
             return value.id === id;
         });
+         */
+
+        // using find
+        return this.recipesData.find((recipe: RecipeInterface) => {
+            return recipe.id === id;
+        });
+
     }
 }

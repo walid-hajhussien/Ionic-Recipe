@@ -11,10 +11,10 @@ export class RecipePage implements OnInit {
     recipes: RecipeInterface[] = [];
 
     constructor(private recipeService: RecipeService) {
-        this.recipes = recipeService.recipes;
     }
 
     ngOnInit() {
+        this.recipes = this.recipeService.recipes;
     }
 
     onAdd() {
