@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RecipeInterface} from '../../interfaces/recipe.interface';
 import {RecipeService} from '../../services/recipe/recipe.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-recipe',
@@ -10,20 +11,16 @@ import {RecipeService} from '../../services/recipe/recipe.service';
 export class RecipePage implements OnInit {
     recipes: RecipeInterface[] = [];
 
-    constructor(private recipeService: RecipeService) {
+    constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
         this.recipes = this.recipeService.recipes;
     }
 
-    onAdd() {
-        this.recipeService.setRecipe({
-            id: '3',
-            title: 'Fish',
-            imageUrl: 'https://www.recipetineats.com/wp-content/uploads/2018/04/Fish-with-Lemon-Butter-Sauce.jpg',
-            ingredients: ['Fish', 'Bread']
-        });
+
+    onShowRecipe(id: string): void {
+        this.router.navigate([id], {relativeTo: this.activatedRoute});
     }
 
 }
