@@ -17,7 +17,6 @@ export class RecipePage implements OnInit {
     }
 
     ngOnInit() {
-        this.recipes = this.recipeService.recipes;
         console.log('recipes', this.recipes);
     }
 
@@ -29,6 +28,7 @@ export class RecipePage implements OnInit {
 
     ionViewWillEnter() {
         console.log('ionViewWillEnter', ++this.counter);
+        this.recipes = this.recipeService.recipes;
     }
 
     ionViewDidEnter() {
